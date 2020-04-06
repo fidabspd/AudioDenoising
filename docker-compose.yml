@@ -1,0 +1,10 @@
+version: "2.3"
+services:
+  rnnoise:  # 서비스 이름
+    image: rnnoise:latest  # run할 이미지
+    container_name: rnnoise  # 컨테이너 이름
+    ports:
+      - 8889:8888  # 로컬의 8889포트와 컨테이너의 8888포트 연결
+    volumes:
+      - ./source/:/home/  # 로컬의 source폴더와 home 폴더를 마운트 (source안의 내용이 home 안에 복사된다)
+    
