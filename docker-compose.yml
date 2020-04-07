@@ -6,5 +6,5 @@ services:
     ports:
       - 8889:8888  # 로컬의 8889포트와 컨테이너의 8888포트 연결
     volumes:
-      - ./source/:/home/  # 로컬의 source폴더와 home 폴더를 마운트 (source안의 내용이 home 안에 복사된다)
+      - ./source/:/home/  # 로컬의 source폴더와 home 폴더를 마운트 (컨테이너 안의 home 폴더 내용이 로컬의 source 내용과 같아진다.)
     

@@ -13,10 +13,9 @@ rnnoise 코드를 윈도우에서 띄운 우분투 도커 환경에서 실행 �
 
 - `audiofile`: denoise할 원본파일과 결과물이 저장되는 폴더
   - `input`: 원본파일
-  - `pcm_before`: 원본파일을 .pcm확장자로 바꾼 것
-  - `pcm_after`: denoise 완료한 .pcm파일
-  - `done`: denoise 완료한 .pcm파일을 다시 wav파일로 변환한 것
+  - `denoise`: denoise 완료한 wav파일
   - `raw`: .wav로 변환하고자 하는 .raw파일이나 .pcm파일들
+  - `wav`: .raw에서 .wav로 변환 완료한 파일
 - `auto`: denoise 및 파일확장자 변경 자동화를 위한 코드
 - `rnnoise`: rnnoise의 git clone + 컴파일 완료(denoise를 위한 바이너리 파일 생성)
 
@@ -33,7 +32,7 @@ docker-compose up
 
 denoise하고자 하는 원본 파일(.wav .m4a 등의 확장자)을 audiofile/input폴더 안에 넣고\
 docker container의 shell을 attach, 다음코드 실행\
-(denoise 완료 된 결과물은 done 폴더에 저장)
+(denoise 완료 된 결과물은 denoise 폴더에 저장)
 
 ```powershell
 python3 /home/auto/denoise.py
@@ -42,7 +41,7 @@ python3 /home/auto/denoise.py
 ### 3. Convert raw to wav
 
 마찬가지로 container안의 shell에서 다음 코드 실행\
-(.wav로 변환 된 파일은 input 폴더에 저장)
+(.wav로 변환 된 파일은 wav 폴더에 저장)
 
 ```powershell
 python3 /home/auto/raw2wav.py
